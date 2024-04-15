@@ -132,4 +132,4 @@ dmypy.json
 *.iml
 .vscode/
 
-src/version.py
+version.py
