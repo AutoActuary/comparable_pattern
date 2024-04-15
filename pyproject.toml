@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "comparable_pattern"
 description="A comparable string / regex object for flexible string comparisons."
+readme = "README.md"
 dynamic = ["version"]
 dependencies = [ ]
 authors = [
