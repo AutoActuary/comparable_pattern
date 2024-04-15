@@ -5,10 +5,14 @@ on:
     types: [created]
 
 jobs:
-  deploy:
+  pypi-publish:
     timeout-minutes: 20
 
     runs-on: ubuntu-latest
+    
+    permissions:
+      # See https://docs.pypi.org/trusted-publishers/using-a-publisher/
+      id-token: write
 
     steps:
       - uses: actions/checkout@v3
@@ -30,8 +34,5 @@ jobs:
           pip install build
           python -m build
 
-      - name: Publish
-        uses: pypa/gh-action-pypi-publish@v1.8.14
-        with:
-          password: ${{ secrets.PUBLIC_PYPI_PASSWORD }}
-          verbose: true
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
